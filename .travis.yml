@@ -8,6 +8,7 @@ install: pip install -r app/requirements/requirements-test.txt
 script: coverage run --source=./app app/manage.py test
 before_deploy:
  - docker build -t jaimeviloria/scraper:$TRAVIS_TAG .
+ - docker tag jaimeviloria/scraper:$TRAVIS_TAG jaimeviloria/scraper:latest
 deploy:
  provider: script
  script: deploy/hub.sh
@@ -18,3 +19,4 @@ branches:
     - master
     - dev
     - /([12]\d{3}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01]))/
+    - latest

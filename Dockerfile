@@ -6,6 +6,7 @@ RUN mkdir -p app
 COPY ./app/ ./app/
 WORKDIR ./app
 RUN pip3 install --no-cache-dir -r ./requirements/requirements.txt
+RUN python manage.py migrate
 
 EXPOSE 8080
 
