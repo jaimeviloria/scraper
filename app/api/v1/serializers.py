@@ -1,10 +1,16 @@
 from rest_framework import serializers
-from core.models import Item
+from core.models import Snippet, URL
 
-class ItemSerializer(serializers.ModelSerializer):
+
+class URLSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = URL
+        fields = ("url",)
+
+
+class SnippetSerializer(serializers.ModelSerializer):
+    urls = URLSerializer(many=True, read_only=True)
 
     class Meta:
-        model = Item
-        lookup_field = 'item_uuid'
-        fields = ('item_uuid','item_name')
-
+        model = Snippet
+        fields = ("id", "text", "urls")

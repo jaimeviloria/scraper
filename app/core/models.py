@@ -1,7 +1,13 @@
 from django.db import models
 import uuid
 
-class Item(models.Model):
-    item_uuid=models.UUIDField(max_length=64,primary_key=True,blank=True,default=uuid.uuid4(),editable=False)
-    item_name=models.CharField(max_length=128)
 
+class URL(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    url = models.URLField(unique=True)
+
+
+class Snippet(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    text = models.TextField(unique=True)
+    urls = models.ManyToManyField(URL)

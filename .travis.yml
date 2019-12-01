@@ -5,7 +5,7 @@ python:
 services:
  - docker
 install: pip install -r app/requirements/requirements.txt
-script: python app/manage.py test
+script: coverage run --source=./app app/manage.py test
 before_deploy:
  - docker build -t jaimeviloria/scraper:$TRAVIS_TAG .
 deploy:

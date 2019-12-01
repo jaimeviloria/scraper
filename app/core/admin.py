@@ -1,13 +1,16 @@
 from django.contrib import admin
-from .models import Item
+from .models import Snippet, URL
 
-class ItemAdmin(admin.ModelAdmin):
-    list_display=('item_uuid','item_name')
 
-a_rs={
-        Item:ItemAdmin
-        }
+class SnippetAdmin(admin.ModelAdmin):
+    list_display = ("id", "text", "urls")
 
-for o_r,a_r in a_rs.items():
-    admin.site.register(o_r,a_r)
 
+class URLAdmin(admin.ModelAdmin):
+    list_display = ("url",)
+
+
+a_rs = {Snippet: SnippetAdmin, URL: URLAdmin}
+
+for o_r, a_r in a_rs.items():
+    admin.site.register(o_r, a_r)
