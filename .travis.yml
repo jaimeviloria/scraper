@@ -4,7 +4,7 @@ python:
  - 3.7.5
 services:
  - docker
-install: pip install -r app/requirements/requirements.txt
+install: pip install -r app/requirements/requirements-test.txt
 script: coverage run --source=./app app/manage.py test
 before_deploy:
  - docker build -t jaimeviloria/scraper:$TRAVIS_TAG .
