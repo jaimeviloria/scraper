@@ -1,6 +1,6 @@
 # scraper
 
-[![Build Status](https://travis-ci.org/jaimeviloria/scraper.svg)](https://travis-ci.com/jaimeviloria/scraper)
+[![Build Status](https://travis-ci.org/jaimeviloria/scraper.svg)](https://travis-ci.org/jaimeviloria/scraper)
 
 ## Installation
 
